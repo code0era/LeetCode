@@ -1,0 +1,21 @@
+// Last updated: 1/16/2026, 8:20:34 PM
+class Solution {
+public:
+    int countNegatives(vector<vector<int>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+
+        int row = 0, col = n - 1;
+        int count = 0;
+
+        while (row < m && col >= 0) {
+            if (grid[row][col] < 0) {
+                count += (m - row);  // all below are negative
+                col--;
+            } else {
+                row++;
+            }
+        }
+        return count;
+    }
+};
